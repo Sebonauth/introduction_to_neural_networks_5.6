@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review and Reflect: Feedforward Neural Networks</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            font-size: 150%;
+        }
+        section {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #ffffff;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease-in;
+        }
+        h1, h2, h3, h4 {
+            color: #333;
+            margin-top: 20px;
+        }
+        p, li {
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 20px;
+        }
+        ul, ol {
+            padding-left: 20px;
+        }
+        .image-placeholder, .interactive-placeholder, .continue-button, .vocab-section, .why-it-matters, .test-your-knowledge, .faq-section {
+            text-align: left;
+        }
+        .image-placeholder img, .interactive-placeholder img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .vocab-section, .why-it-matters, .test-your-knowledge, .faq-section {
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .vocab-section {
+            background-color: #f0f8ff;
+        }
+        .vocab-section h3 {
+            color: #1e90ff;
+            font-size: 0.75em;
+            margin-bottom: 5px;
+            margin-top: 5px;
+        }
+        .why-it-matters {
+            background-color: #ffe6f0;
+        }
+        .why-it-matters h3 {
+            color: #d81b60;
+            font-size: 0.75em;
+            margin-bottom: 5px;
+            margin-top: 5px;
+        }
+        .test-your-knowledge {
+            background-color: #e6ffe6;
+        }
+        .test-your-knowledge h3 {
+            color: #28a745;
+            font-size: 0.75em;
+            margin-bottom: 5px;
+            margin-top: 5px;
+        }
+        .faq-section {
+            background-color: #fffbea;
+        }
+        .faq-section h3 {
+            color: #ffcc00;
+            font-size: 0.75em;
+            margin-bottom: 5px;
+            margin-top: 5px;
+        }
+        .continue-button, .solution-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 15px;
+            color: #ffffff;
+            background-color: #007bff;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .drag-drop-container {
+            border: 2px dashed #ccc;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .drag-item {
+            display: inline-block;
+            padding: 5px 10px;
+            margin: 5px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            cursor: move;
+        }
+        .drop-zone {
+            display: inline-block;
+            width: 150px;
+            height: 30px;
+            border: 1px solid #ccc;
+            margin: 5px;
+            padding: 5px;
+            vertical-align: middle;
+        }
+        .check-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 15px;
+            color: #ffffff;
+            background-color: #28a745;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <section id="section1">
+        <h1>Review and Reflect</h1>
+        <div class="image-placeholder">
+            <img src="/placeholder.svg?height=400&width=800" alt="A comprehensive diagram showing a complete feedforward network with all components labeled">
+        </div>
+        <p>Let's recap what we've learned about feedforward neural networks:</p>
+        <h2>Key Components:</h2>
+        <ol>
+            <li>
+                <h3>Input Layer</h3>
+                <ul>
+                    <li>Receives raw data</li>
+                    <li>No computation performed</li>
+                    <li>One node per feature</li>
+                </ul>
+            </li>
+            <li>
+                <h3>Hidden Layers</h3>
+                <ul>
+                    <li>Where learning happens</li>
+                    <li>Can have multiple layers</li>
+                    <li>Transform data through weighted connections</li>
+                </ul>
+            </li>
+            <li>
+                <h3>Output Layer</h3>
+                <ul>
+                    <li>Produces final predictions</li>
+                    <li>Structure matches your task</li>
+                </ul>
+            </li>
+        </ol>
+        <div class="continue-button" onclick="showNextSection(2)">Continue</div>
+    </section>
+
+    <section id="section2">
+        <div class="vocab-section">
+            <h3>Build Your Vocab Review</h3>
+            <p>Terms we've covered:</p>
+            <ul>
+                <li>Feedforward Neural Network</li>
+                <li>Fully Connected Layer</li>
+                <li>Forward Propagation</li>
+                <li>Hidden Layer</li>
+                <li>Activation Function</li>
+            </ul>
+        </div>
+        <div class="test-your-knowledge">
+            <h3>Test Your Understanding</h3>
+            <p>Complete this sequence of events in a feedforward network:</p>
+            <ol>
+                <li>Data enters through <div class="drop-zone" id="drop1"></div></li>
+                <li>Values are multiplied by <div class="drop-zone" id="drop2"></div></li>
+                <li>Each node computes a <div class="drop-zone" id="drop3"></div></li>
+                <li>The <div class="drop-zone" id="drop4"></div> function transforms the result</li>
+                <li>Process repeats until reaching <div class="drop-zone" id="drop5"></div></li>
+            </ol>
+            <div class="drag-drop-container">
+                <div class="drag-item" draggable="true">input layer</div>
+                <div class="drag-item" draggable="true">weights</div>
+                <div class="drag-item" draggable="true">weighted sum</div>
+                <div class="drag-item" draggable="true">activation</div>
+                <div class="drag-item" draggable="true">output layer</div>
+            </div>
+            <button onclick="checkAnswers()" class="check-button">Check Answers</button>
+        </div>
+        <div class="continue-button" onclick="showNextSection(3)">Continue</div>
+    </section>
+
+    <section id="section3">
+        <div class="why-it-matters">
+            <h3>Why It Matters</h3>
+            <p>Understanding feedforward networks is crucial because:</p>
+            <ul>
+                <li>They're the foundation for more complex neural networks</li>
+                <li>Most modern deep learning applications build upon this architecture</li>
+                <li>They demonstrate key concepts like layer hierarchy and forward propagation</li>
+            </ul>
+        </div>
+        <div class="faq-section">
+            <h3>Frequently Asked Questions</h3>
+            <h4>Q: How is this different from our earlier perceptron?</h4>
+            <p>A: Think of a perceptron as a single neuron, while a feedforward network is like a whole brain - multiple neurons working together in layers to solve more complex problems.</p>
+            <h4>Q: Why can't we just use one big layer instead of multiple smaller ones?</h4>
+            <p>A: Multiple layers allow the network to learn hierarchical features, breaking down complex patterns into simpler components - something a single layer can't do effectively.</p>
+        </div>
+        <div class="continue-button" onclick="showNextSection(4)">Continue</div>
+    </section>
+
+    <section id="section4">
+        <h2>Looking Ahead</h2>
+        <p>In the next lesson, we'll dive into designing multi-layer networks and see how to choose the right architecture for specific problems. We'll also start exploring how these networks actually learn through a process called backpropagation.</p>
+        <div class="test-your-knowledge">
+            <h3>Final Challenge</h3>
+            <p>Design a feedforward network for this scenario:</p>
+            <p>You're building a system to classify emails into three categories: work, personal, and spam, using 10 features (word frequency, sender info, etc.).</p>
+            <div class="interactive-placeholder">
+                <img src="/placeholder.svg?height=300&width=600" alt="Interactive: Drag and drop tools to design the network architecture">
+            </div>
+            <p>Think about:</p>
+            <ul>
+                <li>How many input nodes you need</li>
+                <li>Appropriate hidden layer structure</li>
+                <li>Output layer design for three categories</li>
+            </ul>
+            <div class="solution-button" onclick="showSolution()">Solution</div>
+            <div id="solution" style="display: none;">
+                <p>A reasonable architecture might be:</p>
+                <ul>
+                    <li>Input Layer: 10 nodes (one per feature)</li>
+                    <li>Hidden Layers: [8,6] nodes</li>
+                    <li>Output Layer: 3 nodes (one per category)</li>
+                </ul>
+            </div>
+        </div>
+        <div class="continue-button" onclick="showNextSection(5)">Continue</div>
+    </section>
+
+    <section id="section5">
+        <h2>End of Lesson Assessment</h2>
+        <p>Complete this short quiz to check your understanding before moving on to the next lesson.</p>
+        <div class="interactive-placeholder">
+            <img src="/placeholder.svg?height=400&width=800" alt="Interactive Quiz with 5 questions covering key concepts">
+        </div>
+        <p>Remember: The power of feedforward networks lies in their ability to transform input data through multiple layers of processing, learning increasingly complex patterns at each step.</p>
+        <h2>Next Lesson Preview</h2>
+        <p>Next up: "Designing a Multi-Layer Neural Network" - where we'll get hands-on experience building and training these networks!</p>
+    </section>
+
+    <script>
+        let currentSection = 1;
+
+        function showNextSection(nextSectionId) {
+            const nextSectionElement = document.getElementById("section" + nextSectionId);
+            const currentButton = event.target;
+    
+            currentButton.style.display = "none";
+    
+            nextSectionElement.style.display = "block";
+    
+            setTimeout(() => {
+                nextSectionElement.style.opacity = "1";
+                nextSectionElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 10);
+
+            currentSection = nextSectionId;
+        }
+
+        function showSolution() {
+            document.getElementById("solution").style.display = "block";
+        }
+
+        // Drag and drop functionality
+        const dragItems = document.querySelectorAll('.drag-item');
+        const dropZones = document.querySelectorAll('.drop-zone');
+
+        dragItems.forEach(item => {
+            item.addEventListener('dragstart', dragStart);
+        });
+
+        dropZones.forEach(zone => {
+            zone.addEventListener('dragover', dragOver);
+            zone.addEventListener('drop', drop);
+        });
+
+        function dragStart(e) {
+            e.dataTransfer.setData('text/plain', e.target.innerText);
+        }
+
+        function dragOver(e) {
+            e.preventDefault();
+        }
+
+        function drop(e) {
+            e.preventDefault();
+            const data = e.dataTransfer.getData('text');
+            e.target.innerText = data;
+        }
+
+        function checkAnswers() {
+            const correctAnswers = ['input layer', 'weights', 'weighted sum', 'activation', 'output layer'];
+            const dropZones = document.querySelectorAll('.drop-zone');
+            let allCorrect = true;
+
+            dropZones.forEach((zone, index) => {
+                if (zone.innerText.toLowerCase() === correctAnswers[index]) {
+                    zone.style.backgroundColor = '#d4edda';
+                } else {
+                    zone.style.backgroundColor = '#f8d7da';
+                    allCorrect = false;
+                }
+            });
+
+           
+        }
+
+        // Show the first section initially
+        document.getElementById("section1").style.display = "block";
+        document.getElementById("section1").style.opacity = "1";
+    </script>
+</body>
+</html>
